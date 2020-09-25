@@ -159,6 +159,7 @@ header {
   background-color: var(--mainColor);
   text-align: center;
   border-radius: 5px;
+  cursor: pointer;
 }
 
 .cart-container {
