@@ -25,6 +25,7 @@ nav {
   position: fixed;
   top: 0;
   background-color: var(--whiteColor);
+  z-index: 9999;
 }
 
 .left {
@@ -125,14 +126,14 @@ header {
 .hot {
   position: absolute;
   top: 0;
-  background-color: darkorange;
+  background-color: rgba(255, 0, 0, 0.2);
   padding: 5px 20px;
 }
 
 .new {
   position: absolute;
   top: 0;
-  background-color: #32cd32;
+  background-color: rgba(0, 255, 0, 0.3);
   padding: 5px 20px;
 }
 
@@ -158,4 +159,12 @@ header {
   background-color: var(--mainColor);
   text-align: center;
   border-radius: 5px;
+}
+
+.cart-container {
+  margin-top: 100px;
+}
+
+.not-found-container {
+  margin-top: 100px;
 }

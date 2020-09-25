@@ -1,22 +1,23 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   return (
     <nav>
       <ul className="left">
         <li>
-          <a href="www.google.com">Shoplace</a>
+          <Link to="/">Shoplace</Link>
         </li>
       </ul>
 
       <ul className="right">
         <li>
-          <a href="www.google.com">
+          <Link to="cart">
             <span className="shoppingCart">
               <i class="fas fa-shopping-cart"></i>
               <span className="cartCount">0</span>
             </span>
-          </a>
+          </Link>
         </li>
       </ul>
     </nav>
