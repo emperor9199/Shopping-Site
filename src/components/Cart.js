@@ -1,8 +1,11 @@
 import React, { useContext } from "react";
 import { CartContext } from "../global/CartContext";
+import StripeCheckout from "react-stripe-checkout";
 
 const Cart = () => {
   const { shoppingCart, totalPrice, qty, dispatch } = useContext(CartContext);
+
+  const handleToken = () => {};
 
   return (
     <div className="cart-container">
@@ -47,6 +50,32 @@ const Cart = () => {
             ))
           : "Sorry! You haven't added any items yet"}
       </div>
+      {shoppingCart.length > 0 ? (
+        <div className="cart-summary">
+          <div className="summary">
+            <h3>Cart Summary</h3>
+            <div className="total-items">
+              <div className="items">Total Items</div>
+              <div className="items-count">{qty}</div>
+            </div>
+            <div className="total-price-section">
+              <div className="price-title">Total Price</div>
+              <div className="items-price">{totalPrice}</div>
+            </div>
+            <div className="stripe-section">
+              <StripeCheckout
+                stripeKey="pk_test_51HVfwqDg3IaavaVbwqtwSZwam9BBGxKir23txpJluoDkTNgj7F57MgQp6Vdb5Lutu8GC3UXMVdoIzFoOWJZZScYP00F33z4ZAH"
+                token={handleToken}
+                billingAddress
+                shippingAddress
+                amount={totalPrice * 100}
+              ></StripeCheckout>
+            </div>
+          </div>
+        </div>
+      ) : (
+        ""
+      )}
     </div>
   );
 };

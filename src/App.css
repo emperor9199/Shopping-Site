@@ -266,3 +266,57 @@ header {
   color: rgb(241, 67, 67);
   cursor: pointer;
 }
+
+/* Cart Summary */
+
+.cart-summary {
+  width: 25%;
+  padding: 0 0 0 20px;
+}
+
+.summary {
+  background: var(--whiteColor);
+  padding: 13px;
+}
+
+.summary h3 {
+  font-size: 18px;
+  font-weight: normal;
+  border-bottom: 1px solid #999;
+}
+
+.total-items {
+  display: flex;
+  margin: 15px 0;
+}
+
+.items {
+  width: 50%;
+  text-align: left;
+  font-weight: normal;
+}
+
+.items-count {
+  width: 50%;
+  text-align: right;
+  font-weight: bold;
+  color: var(--mainColor);
+}
+
+.total-price-section {
+  display: flex;
+  margin: 15px 0;
+}
+
+.price-title {
+  width: 50%;
+  text-align: left;
+  font-weight: normal;
+}
+
+.items-price {
+  width: 50%;
+  text-align: right;
+  font-weight: bold;
+  color: var(--mainColor);
+}
