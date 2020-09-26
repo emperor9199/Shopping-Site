@@ -15,15 +15,32 @@ const Cart = () => {
                 </span>
                 <span className="cart-product-name">{cart.name}</span>
                 <span className="cart-product-price">Rs.{cart.price}</span>
-                <span className="cart-product-plus">
+                <span
+                  className="cart-product-plus"
+                  onClick={() =>
+                    dispatch({ type: "ADD_PRODUCT", id: cart.id, cart })
+                  }
+                >
                   <i class="fas fa-plus"></i>
                 </span>
                 <span className="cart-product-qty">{cart.qty}</span>
-                <span className="cart-product-minus">
+                <span
+                  className="cart-product-minus"
+                  onClick={() =>
+                    dispatch({ type: "REMOVE_PRODUCT", id: cart.id, cart })
+                  }
+                >
                   <i class="fas fa-minus"></i>
                 </span>
-                <span className="cart-product-total-price">{cart.price}</span>
-                <span className="cart-product-delete">
+                <span className="cart-product-total-price">
+                  {cart.price * cart.qty}
+                </span>
+                <span
+                  className="cart-product-delete"
+                  onClick={() =>
+                    dispatch({ type: "DELETE_PRODUCT", id: cart.id, cart })
+                  }
+                >
                   <i class="fas fa-trash-alt"></i>
                 </span>
               </div>
