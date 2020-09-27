@@ -1,11 +1,27 @@
 import React, { useContext } from "react";
 import { CartContext } from "../global/CartContext";
 import StripeCheckout from "react-stripe-checkout";
-
-const Cart = () => {
+import axios from "axios";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+const Cart = (props) => {
   const { shoppingCart, totalPrice, qty, dispatch } = useContext(CartContext);
 
-  const handleToken = () => {};
+  const handleToken = async (token) => {
+    const product = { name: "All Products", price: totalPrice };
+    const response = await axios.post("http://localhost:3001/checkout", {
+      product,
+      token,
+    });
+    const { status } = response.data;
+    if (status === "success") {
+      dispatch({ type: "EMPTY" });
+      props.history.push("/");
+      toast.success("Purchased Successfully", {
+        position: toast.POSITION.TOP_RIGHT,
+      });
+    }
+  };
 
   return (
     <div className="cart-container">

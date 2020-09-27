@@ -23,8 +23,6 @@ export const CartReducer = (state, action) => {
         };
       }
 
-      break;
-
     case "ADD_PRODUCT":
       product = action.cart;
       product.qty = product.qty + 1;
@@ -37,8 +35,6 @@ export const CartReducer = (state, action) => {
         totalPrice: updatedPrice,
         qty: updatedQty,
       };
-
-      break;
 
     case "REMOVE_PRODUCT":
       product = action.cart;
@@ -58,8 +54,6 @@ export const CartReducer = (state, action) => {
         return state;
       }
 
-      break;
-
     case "DELETE_PRODUCT":
       const filtered = shoppingCart.filter(
         (product) => product.id !== action.id
@@ -74,7 +68,8 @@ export const CartReducer = (state, action) => {
         qty: updatedQty,
       };
 
-      break;
+    case "EMPTY":
+      return { shoppingCart: [], totalPrice: 0, qty: 0 };
 
     default:
       return state;
